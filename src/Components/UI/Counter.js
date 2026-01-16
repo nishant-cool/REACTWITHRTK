@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { decrement, increment,reset } from "../RTK/counterSlice"
 import { useNavigate } from "react-router";
+import { logoutRequest } from "../LoginRTK/slice";
 
 function Counter(){
     const dispatch =useDispatch()
@@ -18,6 +19,12 @@ function Counter(){
     const handleNavigate =()=>{
         navigate('/post')
     }
+     const handleLogout =() =>{
+            dispatch(logoutRequest())
+            navigate('/')
+    
+            
+        }
 
     return(
         <div>
@@ -32,6 +39,9 @@ function Counter(){
                 <button onClick={handleReset}>Reset</button>
             </div>
             <button onClick={handleNavigate}>Post page</button>
+            <div>
+            <button onClick={handleLogout}>Logout</button>
+         </div>
         </div>
 
     )

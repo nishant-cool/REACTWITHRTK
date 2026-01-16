@@ -3,12 +3,14 @@ import createSagaMiddleware from 'redux-saga'
 import counterReducer from '../RTK/counterSlice'
 import postReducer from '../BASCAPIRTK/slice'
 import rootSaga from "./saga";
+import loginReducer from '../LoginRTK/slice'
 
 
 const sagaMiddleware = createSagaMiddleware()
 const combineReducer = combineReducers({
   posts: postReducer,
-  counter: counterReducer
+  counter: counterReducer,
+  login: loginReducer
 });
 
 export const store = configureStore({
